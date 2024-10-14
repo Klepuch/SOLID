@@ -1,0 +1,26 @@
+class Printer:
+    def print_document(self, document):
+        raise NotImplementedError
+
+class Scanner:
+    def scan_document(self):
+        raise NotImplementedError
+
+class MultiFunctionPrinter(Printer, Scanner):
+    def print_document(self, document):
+        return f"Друкую документ: {document}"
+
+    def scan_document(self):
+        return "Сканую документ"
+
+class SimplePrinter(Printer):
+    def print_document(self, document):
+        return f"Друкую документ: {document}"
+
+# Використання
+mfp = MultiFunctionPrinter()
+print(mfp.print_document("Тестовий документ"))
+print(mfp.scan_document())
+
+simple_printer = SimplePrinter()
+print(simple_printer.print_document("Інший документ"))
