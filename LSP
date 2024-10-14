@@ -1,0 +1,18 @@
+class Bird:
+    def fly(self):
+        return "Лечу в небі!"
+
+class Sparrow(Bird):
+    def fly(self):
+        return "Горобець летить!"
+
+class Penguin(Bird):
+    def fly(self):
+        raise Exception("Пінгвіни не можуть літати!")
+
+def make_bird_fly(bird: Bird):
+    print(bird.fly())
+
+# Використання
+make_bird_fly(Sparrow())  # Коректно
+make_bird_fly(Penguin())  # Викликає помилку
