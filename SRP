@@ -1,0 +1,17 @@
+class Report:
+    def __init__(self, title, content):
+        self.title = title
+        self.content = content
+
+    def generate_report(self):
+        return f"Report: {self.title}\n{self.content}"
+
+class ReportPrinter:
+    @staticmethod
+    def print_report(report):
+        print(report.generate_report())
+
+# Використання
+report = Report("Monthly Sales", "Sales data...")
+printer = ReportPrinter()
+printer.print_report(report)
