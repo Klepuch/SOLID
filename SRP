@@ -4,7 +4,7 @@ class Report:
         self.content = content
 
     def generate_report(self):
-        return f"Report: {self.title}\n{self.content}"
+        return f"Звіт: {self.title}\n{self.content}"
 
 class ReportPrinter:
     @staticmethod
@@ -12,6 +12,6 @@ class ReportPrinter:
         print(report.generate_report())
 
 # Використання
-report = Report("Monthly Sales", "Sales data...")
+report = Report("Місячні продажі", "Дані про продажі")
 printer = ReportPrinter()
 printer.print_report(report)
