@@ -1,0 +1,30 @@
+from abc import ABC, abstractmethod
+
+class MessageService(ABC):
+    @abstractmethod
+    def send_message(self, message: str):
+        pass
+
+class EmailService(MessageService):
+    def send_message(self, message: str):
+        return f"Відправлено електронне повідомлення: {message}"
+
+class SMSService(MessageService):
+    def send_message(self, message: str):
+        return f"Відправлено SMS: {message}"
+
+class Notification:
+    def __init__(self, service: MessageService):
+        self.service = service
+
+    def notify(self, message: str):
+        print(self.service.send_message(message))
+
+# Використання
+email_service = EmailService()
+notification = Notification(email_service)
+notification.notify("Привіт! Це тестове повідомлення.")
+
+sms_service = SMSService()
+notification = Notification(sms_service)
+notification.notify("Привіт! Це тестове SMS.")
